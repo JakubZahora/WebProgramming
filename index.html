@@ -1,69 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Getting to Know Each Other!</title>
+<title>Homepage</title>
 <style>
-    h1 {text-align: center;}
-    div {text-align: center;}
-    .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+h1 {text-align: center;}
+    * {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
   width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }
 </style>
 </head>
-<body style="background-color:grey">
+<body style="background-color:wheat">
 
-<img src="pic_web.jpg" alt="Picture" class="center">
+<h1>Welcome to my Homepage!</h1>
 
-<h1>Jakub Zahora</h1>
 
-<div style="text-align:center">
-    <p style="font-style: italic;">I go by Jake</p>
-    <a href="jakubmzahora@lewisu.edu">jakubmzahora@lewisu.edu</a>
-</div> 
-
-<h2 style="font-style:oblique">Introduction</h2>
-<p>I was born in a small town called Zakopane in Poland. My family moved to United States around 10 years ago now,</p>
-<p>and we have lived in Romeoville since. I graduated in 2017 from Plainfield East High School, and decided to study</p>
-<p>Computer Science at Lewis University. I enjoy learning about theory of it as much as the practical aspect of it, and</p>
-<p>I am excited to see where it takes me after I graduate, and what amazing things will be possible using computers</p>
-<p>in the future.</p>
-
-<h2 style="font-style:oblique">What I Hope to Learn in this Course</h2>
-<ul style="list-style-type:square">
-    <li>Understanding of how to create a pretty good looking website</li>
-    <li>Better understanding of how the internet and the web works as a whole</li>
-    <li>Learn more about Agile workflow!</li>
-</ul>
-
-<h2 style="font-style:oblique">My Favorite Hobby</h2>
-<p>My favorite hobby is probably road biking. While I do not have the courage to ride bikes on actual roads, I do enjoy taking</p>
-<p>a ride through a nearby park once in a while. Using an app called Strava, one can track their progress and even join a couple</p>
-<p>competitions regarding riding certain amount of miles in a week, and win some coupons on online biking stores! The</p>
-<p>downside to biking is that it can get pretty expensive, as bikes usually are, especially today with the nationwide bike</p>
-<p>shortage. Would recommend it to anyone, as a relaxing way to stay in shape and have some fun!</p>
-
-<h2 style="font-style:oblique">Greatest Innovations</h2>
-<ul style="list-style-type:square">
-    <li>Creation of UNIX: In 1969, Ken Thompson and Dennis Ritchie created the first version of UNIX. 
-        That made a tremendous impact on computer history, and their creation led to the world that we have today.
-        <a href="https://en.wikipedia.org/wiki/History_of_Unix">Wiki Link</a>
-    </li>
-    <li>Creation of Windows: With Microsoft creating Windows for public consumption, computers were no longer only available to collage students and professors, 
-        but everyone in the country!
-        <a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Wiki Link</a>
-    </li>
-    <li>Invention of parallelism in computers, where multiple instructions could be executed at once.
-        <a href="https://en.wikipedia.org/wiki/Parallel_computing">Wiki Link</a>
-    </li>
-</ul>
-
-<h2 style="font-style:oblique">Fun Fact!</h2>
-<p>When I was a litle boy walking home from school, I decided to cut through a horse pasture to save some time.</p>
-<p>When I attempted that, my backpack got stuck on an electrical tape designed to keep the horses in, and after multiple shocks,</p>
-<p>I single handedly took the entire side of the fence off. Would not recommend.</p>
+<div class="row">
+    <div class="column">
+      <h2>Click here to find out more about me!</h2>
+      <p><a href="gtkeo.html">Getting to Know Each Other!</a></p>
+    </div>
+    <div class="column">
+      <h2>See my resume here!</h2>
+      <p><a href="resume.html">Resume</a></p>
+    </div>
+  </div>
 
 </body>
 </html>
