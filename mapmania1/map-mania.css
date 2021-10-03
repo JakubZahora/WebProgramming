@@ -4,7 +4,7 @@ h1, h2 { color:green; text-align: center; margin-bottom: 0%; }
     contains the map. Several tutorials named this "map" also which seemed confusing.
 */
 #gMapID {
-    height: 80%;
+    height: 75%;
     width: 100%;
 }
 
