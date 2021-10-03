@@ -1,0 +1,17 @@
+h1, h2 { color:green; text-align: center; margin-bottom: 0%; }
+/* 
+    Always set the map height explicitly to define the size of the div element that 
+    contains the map. Several tutorials named this "map" also which seemed confusing.
+*/
+#gMapID {
+    height: 80%;
+    width: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    background-color: wheat;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
