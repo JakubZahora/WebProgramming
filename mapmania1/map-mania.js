@@ -18,12 +18,14 @@ function initMap() {
       center:new google.maps.LatLng(37.329351383453115, -40.822807597895746),
       zoom:4,
     };
-    var gMap = new google.maps.Map(document.getElementById("gMapID"),map);
+    gMap = new google.maps.Map(document.getElementById("gMapID"),map);
 
     google.maps.event.addListener(gMap, 'idle', function() {
       updateGame()
     });
 }
+
+
 
 function updateGame() {
   console.log('function UpdateGame() google-maps-step-03!');
@@ -31,9 +33,31 @@ function updateGame() {
   var inBounds = false;
 
   // Check if Canoe Bay, WI is in the currently displayed map
-  if (gMap.getBounds().contains({lat:45.3306,lng:-91.4918})) {
-      inBounds = true;
-  }
-
+  for (var i=0; i < favoritePlaces.length; ++i)
+    if (gMap.getBounds().contains(favoritePlaces[i].coordinates)) {
+        inBounds = true;
+        if (inBounds == true) {
+          SetHint("Warm")
+          if (zoomLevel < 8 && zoomLevel > 5) {
+            SetHint("Warmer...")
+          } else if (zoomLevel >= 8 && zoomLevel < 10) {
+            SetHint("HOT HOT HOT")
+          } else if (zoomLevel >= 10) {
+            SetHint("Congratulations, you have found: " +favoritePlaces[i].content)
+            var marker = new google.maps.Marker({position: favoritePlaces[i].coordinates, gMap, title: favoritePlaces[i].content})
+            marker.setMap(gMap);
+          }
+        }
+    } else if (inBounds == false){
+      SetHint("Cold")
+    }
   console.log("inBounds:"+inBounds+" zoomLevel:"+zoomLevel);
+}
+
+function SetHint(hint) {
+  document.getElementById("hint-id").value = hint;  
+}
+
+function SetScore(score) {
+  document.getElementById("score-id").value = score; 
 }
