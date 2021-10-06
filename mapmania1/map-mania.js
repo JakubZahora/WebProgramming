@@ -1,4 +1,5 @@
 var gMap;
+var markers = [];
 
 var favoritePlaces = [
   {content:'<strong>#1: Lombard, IL... Home Sweet Home!<strong>', coordinates:{lat:41.837546,lng:-88.0146821}, iconImagePath:"one.png"},
@@ -38,26 +39,36 @@ function updateGame() {
         inBounds = true;
         if (inBounds == true) {
           SetHint("Warm")
+          document.body.style.backgroundColor = "lightsalmon"
           if (zoomLevel < 8 && zoomLevel > 5) {
             SetHint("Warmer...")
+            document.body.style.backgroundColor = "orangered"
           } else if (zoomLevel >= 8 && zoomLevel < 10) {
             SetHint("HOT HOT HOT")
+            document.body.style.backgroundColor = "red"
           } else if (zoomLevel >= 10) {
             SetHint("Congratulations, you have found: " +favoritePlaces[i].content)
-            var marker = new google.maps.Marker({position: favoritePlaces[i].coordinates, gMap, title: favoritePlaces[i].content})
+            document.body.style.backgroundColor = "wheat"
+            var marker = new google.maps.Marker({position: favoritePlaces[i].coordinates, gMap, title: favoritePlaces[i].content});
+            markers.push(marker);
             marker.setMap(gMap);
           }
         }
     } else if (inBounds == false){
       SetHint("Cold")
+      document.body.style.backgroundColor = "cyan"
     }
   console.log("inBounds:"+inBounds+" zoomLevel:"+zoomLevel);
+  SetScore();
 }
 
 function SetHint(hint) {
   document.getElementById("hint-id").value = hint;  
 }
 
-function SetScore(score) {
-  document.getElementById("score-id").value = score; 
+function SetScore() {
+  var fscore = 0;
+  var marknum = markers.length;
+  fscore = marknum * 10;
+  document.getElementById("score-id").value = fscore; 
 }
