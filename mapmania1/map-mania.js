@@ -2,16 +2,12 @@ var gMap;
 var markers = [];
 
 var favoritePlaces = [
-  {content:'<strong>#1: Lombard, IL... Home Sweet Home!<strong>', coordinates:{lat:41.837546,lng:-88.0146821}, iconImagePath:"one.png"},
-  {content:'<strong>#2: Quetico!<strong>', coordinates:{lat:48.5,lng:-91.3}, iconImagePath:"two.png"},
-  {content:'Santorini, Greece', coordinates:{lat:36.3932,lng:25.4615}, iconImagePath:"flag.png"},
-  {content:'Florence, Italy', coordinates:{lat:43.7696,lng:11.2558}, iconImagePath:"flag.png"},
-  {content:'Myrtle Beach, SC', coordinates:{lat:33.6891,lng:-78.8867}, iconImagePath:"flag.png"},
-  {content:'Prague, Czechia', coordinates:{lat:50.0755,lng:14.4378}, iconImagePath:"flag.png"},
-  {content:'Nelson, New Zealand', coordinates:{lat:-41.2706,lng:173.2840}, iconImagePath:"flag.png"},
+  {content:'Romeoville, IL! My hometown!', coordinates:{lat:41.64436,lng:-88.09073}, iconImagePath:"one.png"},
   {content:'Krakow, Poland', coordinates:{lat:50.0647,lng:19.9450}, iconImagePath:"flag.png"},
   {content:'Zakopane, Poland', coordinates:{lat:49.2992,lng:19.9496}, iconImagePath:"flag.png"},
-  {content:'Canoe Bay, WI', coordinates:{lat:45.3306,lng:-91.4918}, iconImagePath:"flag.png"}
+  {content:'Cancun, Mexico', coordinates:{lat:21.15523,lng:-86.85102}, iconImagePath:"flag.png"},
+  {content:'Grand Canyon National Park', coordinates:{lat:36.09822,lng:-112.11055}, iconImagePath:"flag.png"},
+  {content:'Toronto, Canada', coordinates:{lat:43.64188,lng:-79.38752}, iconImagePath:"flag.png"},
 ]; 
 
 function initMap() {
@@ -34,7 +30,7 @@ function updateGame() {
   var inBounds = false;
 
   // Check if Canoe Bay, WI is in the currently displayed map
-  for (var i=0; i < favoritePlaces.length; ++i)
+  for (var i=0; i < favoritePlaces.length; ++i) 
     if (gMap.getBounds().contains(favoritePlaces[i].coordinates)) {
         inBounds = true;
         if (inBounds == true) {
@@ -49,14 +45,17 @@ function updateGame() {
           } else if (zoomLevel >= 10) {
             SetHint("Congratulations, you have found: " +favoritePlaces[i].content)
             document.body.style.backgroundColor = "wheat"
-            var marker = new google.maps.Marker({position: favoritePlaces[i].coordinates, gMap, title: favoritePlaces[i].content});
+            var marker = new google.maps.Marker({position: favoritePlaces[i].coordinates, gMap, title: favoritePlaces[i].content, animation: google.maps.Animation.DROP});
             markers.push(marker);
             marker.setMap(gMap);
+            favoritePlaces.splice(i, 1);
           }
         }
     } else if (inBounds == false){
       SetHint("Cold")
       document.body.style.backgroundColor = "cyan"
+    } else if (favoritePlaces.length === 0) {
+      break;
     }
   console.log("inBounds:"+inBounds+" zoomLevel:"+zoomLevel);
   SetScore();
@@ -70,5 +69,9 @@ function SetScore() {
   var fscore = 0;
   var marknum = markers.length;
   fscore = marknum * 10;
-  document.getElementById("score-id").value = fscore; 
+  document.getElementById("score-id").value = fscore;
+  if (fscore === 60) {
+    document.body.style.backgroundColor = "wheat"
+    document.getElementById("textBox").innerHTML = "Congratulations! You Won!"
+  }
 }
