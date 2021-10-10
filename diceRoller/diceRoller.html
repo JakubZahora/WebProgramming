@@ -1,29 +1,35 @@
 <!--
 Author:  Jakub Zahora
-Class:   Web & Distributed Programming
+Class:   Dice Roller
 Project: Map Mania v1
 Session: su18-cpsc-24700-lt1
-Description: This is the first version of Map Mania that I am creating for Lab 3.
+Description: This is the a Dice Roller that I am creating for Lab 3.
 -->
 
 <!DOCTYPE html>
 <head>
-<title>Map Mania!</title>
+<title>Dice Roller</title>
 
-<link rel="stylesheet" href="map-mania.css">
-<script src="map-mania.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYFBCXsIEI8qGJIFjnVNTfWQmf2B-fCKU&callback=initMap"></script>
+<link rel="stylesheet" href="diceRoller.css">
+<script src="diceRoller.js"></script>
 
 </head>
-<body onload="initMap()">
 
-<h1>My Favorite Places!</h1>
-<h2 id="textBox">Can you find them all?</h2>
+<body onload="init()">
 
-Hint: <input id="hint-id" type="text" value="" size="120" disabled><br><br>
-Score: <input id="score-id" type="text" value="" size="2" disabled><br><br>
+<h1>Welcome to Dice Roller!</h1>
 
-<div id="gMapID"></div>
+ <div class="row">
+  <div class="column"><div id="dice1"></div><input id="sdice1" type="text" value="1" size="29" disabled></div>
+  <div class="column"><div id="dice2"></div><input id="sdice2" type="text" value="2" size="29" disabled></div>
+  <div class="column"><div id="dice3"></div><input id="sdice3" type="text" value="3" size="29" disabled></div>
+  <div class="column"><div id="dice4"></div><input id="sdice4" type="text" value="4" size="29" disabled></div>
+  <div class="column"><div id="dice5"></div><input id="sdice5" type="text" value="5" size="29" disabled></div>
+  <div class="column"><div id="dice6"></div><input id="sdice6" type="text" value="6" size="29" disabled></div>
+</div> 
+
+<!--Hint: <input id="hint-id" type="text" value="" size="120" disabled><br><br>
+Score: <input id="score-id" type="text" value="" size="2" disabled><br><br>-->
 
 </body>
 </html>
