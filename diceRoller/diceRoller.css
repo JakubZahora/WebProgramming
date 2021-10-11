@@ -25,3 +25,9 @@ html, body {
 input { 
     text-align: center; 
 }
+
+.center {
+  margin-top: 5%;
+  position: absolute;
+  left: 45%;
+}
