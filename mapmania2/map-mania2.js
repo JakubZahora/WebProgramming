@@ -11,6 +11,7 @@ var favoritePlaces = [
 ]; 
 
 function initMap() {
+  var modal = document.getElementById("myModal");
     var map= {
       center:new google.maps.LatLng(37.329351383453115, -40.822807597895746),
       zoom:4,
@@ -20,6 +21,12 @@ function initMap() {
     google.maps.event.addListener(gMap, 'idle', function() {
       updateGame()
     });
+  modal.style.display = "block";
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  } 
 }
 
 
@@ -30,17 +37,15 @@ function updateGame() {
   var inBounds = false;
 
   // Check if Canoe Bay, WI is in the currently displayed map
-  for (var i=0; i < favoritePlaces.length; ++i) 
+  for (var i=0; i < favoritePlaces.length; ++i)
     if (gMap.getBounds().contains(favoritePlaces[i].coordinates)) {
         inBounds = true;
         if (inBounds == true) {
-          SetHint("Warm")
-          document.body.style.backgroundColor = "lightsalmon"
           if (zoomLevel < 8 && zoomLevel > 5) {
-            SetHint("Warmer...")
-            document.body.style.backgroundColor = "orangered"
+            SetHint("Warm");
+            document.body.style.backgroundColor = "lightsalmon";
           } else if (zoomLevel >= 8 && zoomLevel < 10) {
-            SetHint("HOT HOT HOT")
+            SetHint("Hot!")
             document.body.style.backgroundColor = "red"
           } else if (zoomLevel >= 10) {
             SetHint("Congratulations, you have found: " +favoritePlaces[i].content)
@@ -49,6 +54,8 @@ function updateGame() {
             markers.push(marker);
             marker.setMap(gMap);
             favoritePlaces.splice(i, 1);
+          } else {
+            document.body.style.backgroundColor = "wheat";
           }
         }
     } else if (inBounds == false){
