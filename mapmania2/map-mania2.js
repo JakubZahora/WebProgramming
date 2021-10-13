@@ -56,6 +56,7 @@ function updateGame() {
             favoritePlaces.splice(i, 1);
           } else {
             document.body.style.backgroundColor = "wheat";
+            SetHint("");
           }
         }
     } else if (inBounds == false){
