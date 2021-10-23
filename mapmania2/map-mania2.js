@@ -1,3 +1,5 @@
+
+
 var gMap;
 var markers = [];
 
@@ -26,9 +28,15 @@ function initMap() {
     if (event.target == modal) {
       modal.style.display = "none";
     }
-  } 
+  }
+  $.getJSON('places.json', function(data) {
+    //do stuff with your data here
+});
 }
 
+function getLocation() {
+
+}
 
 
 function updateGame() {
