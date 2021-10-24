@@ -48,8 +48,8 @@ function updateGame() {
   var inBounds = false;
 
   // Check if Canoe Bay, WI is in the currently displayed map
-  for (var i=0; i < favoritePlaces.length; ++i)
-    if (gMap.getBounds().contains(favoritePlaces[i].coordinates)) {
+  for (var i=0; i < places.length; ++i)
+    if (gMap.getBounds().contains(places[i].coordinates)) {
         inBounds = true;
         if (inBounds == true) {
           if (zoomLevel < 8 && zoomLevel > 5) {
@@ -59,9 +59,9 @@ function updateGame() {
             SetHint("Hot!")
             document.body.style.backgroundColor = "red"
           } else if (zoomLevel >= 10) {
-            SetHint("Congratulations, you have found: " +favoritePlaces[i].content)
+            SetHint("Congratulations, you have found: " + places[i].content)
             document.body.style.backgroundColor = "wheat"
-            var marker = new google.maps.Marker({position: favoritePlaces[i].coordinates, gMap, title: favoritePlaces[i].content, animation: google.maps.Animation.DROP});
+            var marker = new google.maps.Marker({position: places[i].coordinates, gMap, title: places[i].content, animation: google.maps.Animation.DROP});
             markers.push(marker);
             marker.setMap(gMap);
             favoritePlaces.splice(i, 1);
