@@ -33,7 +33,7 @@ function initMap() {
   }
   $.getJSON('places.json', function(data) {
     places = data;
-    console.log(places.filter(obj => {return obj.content === "Krakow, Poland"}));
+    console.log(places);
 });
 }
 
