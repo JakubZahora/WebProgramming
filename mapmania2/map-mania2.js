@@ -33,6 +33,7 @@ function initMap() {
   }
   $.getJSON('places.json', function(data) {
     places = data;
+    console.log(places);
 });
 }
 
