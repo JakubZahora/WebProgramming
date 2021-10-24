@@ -9,45 +9,45 @@
         "content": "Krakow, Poland",
         "coordinates": "lat:50.0647,lng:19.9450"
       },
-  
-      "place3": {
-        "content": "Zakopane, Poland",
-        "coordinates": "lat:49.2992,lng:19.9496"
-      },
 
-      "place4": {
+      "place3": {
         "content": "Cancun, Mexico",
         "coordinates": "lat:21.15523,lng:-86.85102"
       },
 
-      "place5": {
+      "place4": {
         "content": "Grand Canyon National Park",
         "coordinates": "lat:36.09822,lng:-112.11055"
       },
 
-      "place6": {
+      "place5": {
         "content": "Toronto, Canada",
         "coordinates": "lat:43.64188,lng:-79.38752"
       },
 
+      "place6": {
+        "content": "Tokyo, Japan",
+        "coordinates": "lat:35.67987, lng:139.76626"
+      },
+
       "place7": {
-        "content": "test7",
-        "coordinates": "coordinates7"
+        "content": "Berlin, Germany",
+        "coordinates": "lat:52.51476, lng:13.40128"
       },
 
       "place8": {
-        "content": "test8",
-        "coordinates": "coordinates8"
+        "content": "Paris, France",
+        "coordinates": "lat:48.82835, lng:2.35453"
       },
 
       "place9": {
-        "content": "test9",
-        "coordinates": "coordinates9"
+        "content": "Italy, Rome",
+        "coordinates": "lat:41.87749, lng:12.49765"
       },
 
       "place10": {
-        "content": "test10",
-        "coordinates": "coordinates10"
-      }  
+        "content": "Zakopane, Poland",
+        "coordinates": "lat:49.2992,lng:19.9496"
+      }
     }  
 }
