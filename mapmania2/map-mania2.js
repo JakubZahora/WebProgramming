@@ -3,6 +3,8 @@
 var gMap;
 var markers = [];
 
+var places = [];
+
 var favoritePlaces = [
   {content:'Romeoville, IL! My hometown!', coordinates:{lat:41.64436,lng:-88.09073}, iconImagePath:"one.png"},
   {content:'Krakow, Poland', coordinates:{lat:50.0647,lng:19.9450}, iconImagePath:"flag.png"},
@@ -30,7 +32,7 @@ function initMap() {
     }
   }
   $.getJSON('places.json', function(data) {
-    //do stuff with your data here
+    places = data;
 });
 }
 
