@@ -34,8 +34,8 @@ function initMap() {
   $.getJSON('places.json', function(data) {
     places = data;
     console.log(places);
-    console.log(places.coordinates);
-    console.log(places.content);
+    console.log(places.place1.coordinates);
+    console.log(places[0].coordinates);
 });
 }
 
