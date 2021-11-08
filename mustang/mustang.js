@@ -1,17 +1,17 @@
-var contactURLs = [];
-var contacts = [];
-var loadingContact = 0;
 var contactContainer = document.getElementById("contact-info");
+var contacts = [];
+var contactURLs = [];
+var loadingContact = 0;
 
 function loadClass() {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://mustang-index.azurewebsites.net/index.json');
     request.onload = function() {
         contactURLs.length = 0;
-        contactIndex = JSON.parse(request.responseText);
-        document.getElementById("index-info").innerHTML = JSON.stringify(contactIndex);
-        for (i=0; i<contactIndex.length; i++) {
-            contactURLs.push(contactIndex[i].ContactURL);
+        classIndex = JSON.parse(request.responseText);
+        document.getElementById("index-info").innerHTML = JSON.stringify(classIndex);
+        for (i=0; i<classIndex.length; i++) {
+            contactURLs.push(classIndex[i].ContactURL);
         }
         console.log("contactURLs: " + JSON.stringify(contactURLs));
     }
@@ -42,7 +42,6 @@ function loadNextContact(URL) {
             loadNextContact(contactURLs[loadingContact]);
         }
     }
-
     contactRequest.send();
 }
 
